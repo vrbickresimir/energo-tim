@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Energo Tim - Heating and Cooling Solutions</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: #fff;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo-img {
+            height: 80px;
+            width: auto;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #455A64;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #26C6DA;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #455A64 0%, #37474F 100%);
+            color: white;
+            padding: 100px 0;
+            text-align: center;
+        }
+
+        .hero-logo {
+            margin-bottom: 30px;
+        }
+
+        .hero-logo img {
+            height: 150px;
+            width: auto;
+            filter: drop-shadow(0 5px 15px rgba(0,0,0,0.3));
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .hero p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: #FF7043;
+            color: white;
+            padding: 15px 40px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background 0.3s, transform 0.3s;
+        }
+
+        .cta-button:hover {
+            background: #F4511E;
+            transform: translateY(-2px);
+        }
+
+        /* Services Section */
+        .services {
+            padding: 80px 0;
+            background: #f8f9fa;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 36px;
+            color: #455A64;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 50px;
+            font-size: 18px;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .service-card {
+            background: white;
+            padding: 40px 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-align: center;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+
+        .service-icon {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+
+        .heating {
+            color: #FF7043;
+        }
+
+        .cooling {
+            color: #26C6DA;
+        }
+
+        .maintenance {
+            color: #455A64;
+        }
+
+        .service-card h3 {
+            font-size: 24px;
+            color: #455A64;
+            margin-bottom: 15px;
+        }
+
+        .service-card p {
+            color: #666;
+            line-height: 1.8;
+        }
+
+        /* Clients Section */
+        .clients {
+            padding: 80px 0;
+            background: white;
+        }
+
+        .clients-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-top: 50px;
+            align-items: center;
+        }
+
+        .client-logo {
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+            height: 120px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            color: #455A64;
+            border: 2px solid #e0e0e0;
+            transition: border-color 0.3s;
+        }
+
+        .client-logo:hover {
+            border-color: #26C6DA;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 80px 0;
+            background: linear-gradient(135deg, #26C6DA 0%, #00ACC1 100%);
+            color: white;
+        }
+
+        .contact .section-title {
+            color: white;
+        }
+
+        .contact .section-subtitle {
+            color: rgba(255,255,255,0.9);
+        }
+
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #455A64;
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 5px;
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #26C6DA;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .submit-button {
+            width: 100%;
+            background: #FF7043;
+            color: white;
+            padding: 15px;
+            border: none;
+            border-radius: 5px;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .submit-button:hover {
+            background: #F4511E;
+        }
+
+        /* Footer */
+        footer {
+            background: #263238;
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        .footer-logo {
+            margin-bottom: 30px;
+        }
+
+        .footer-logo img {
+            height: 100px;
+            width: auto;
+            opacity: 0.9;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .footer-section h4 {
+            margin-bottom: 15px;
+            color: #26C6DA;
+        }
+
+        .footer-section p {
+            opacity: 0.8;
+            line-height: 1.8;
+        }
+
+        .copyright {
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            opacity: 0.7;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            .hero-logo img {
+                height: 100px;
+            }
+
+            .logo-img {
+                height: 60px;
+            }
+
+            .nav-links {
+                gap: 15px;
+                font-size: 14px;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .clients-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .contact-form {
+                padding: 25px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav class="container">
+            <div class="logo-container">
+                <!-- Replace 'energo-tim-logo.png' with your actual logo file path -->
+                <img src="energo-tim-logo.png" alt="Energo Tim Logo" class="logo-img">
+            </div>
+            <ul class="nav-links">
+                <li><a href="#services">Usluge</a></li>
+                <li><a href="#clients">Partneri</a></li>
+                <li><a href="#contact">Kontakt</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-logo">
+                <!-- Replace 'energo-tim-logo.png' with your actual logo file path -->
+                <img src="energo-tim-logo.png" alt="Energo Tim">
+            </div>
+            <h1>Energo Tim</h1>
+            <p>Stručnjaci za grijanje i hlađenje.</p>
+            <a href="#contact" class="cta-button">Kontaktirajte nas</a>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="container">
+            <h2 class="section-title">Naše usluge</h2>
+            <p class="section-subtitle">Sveobuhvatna energetska rješenja prilagođena Vašim potrebama.</p>
+            
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon heating">🔥</div>
+                    <h3>Sustavi grijanja</h3>
+                    <p>Profesionalna ugradnja i održavanje sustava grijanja. Osiguravamo da Vaš prostor ostane topao i ugodan tijekom cijele godine uz energetski učinkovita rješenja.</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon cooling">❄️</div>
+                    <h3>Sustavi hlađenja</h3>
+                    <p>Stručna usluga ugradnje i popravka sustava hlađenja. Neka Vaša okolina ostane ugodna neovisno o vanjskim uvjetima.</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon maintenance">🔧</div>
+                    <h3>Popvravak, održavanje i kontrola sustava</h3>
+                    <p>Pružamo kompletan servis i održavanje sustava, uključujući preventivne preglede, dijagnostiku, popravke i pripremu za sezonu grijanja i hlađenja.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Clients Section -->
+    <section id="clients" class="clients">
+        <div class="container">
+            <h2 class="section-title">Partneri</h2>
+            <p class="section-subtitle">Pouzdana i dugogodišnja suradnja.</p>
+            
+            <div class="clients-grid">
+                <div class="client-logo">PBZ</div>
+                <div class="client-logo">Živi bar(Vivas)</div>
+                <div class="client-logo">MD frigo</div>
+                <div class="client-logo">Termorad</div>
+                <div class="client-logo">Poliklinika Svečnjak</div>
+                <div class="client-logo">Dječiji Vrtić Blažena Hozana</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">Kontaktirajte nas</h2>
+            <p class="section-subtitle">Odgovoramo u najkraćem roku.</p>
+            
+            <form class="contact-form">
+                <div class="form-group">
+                    <label for="name">Ime i prezime</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="phone">Broj telefona</label>
+                    <input type="tel" id="phone" name="phone">
+                </div>
+                
+                <div class="form-group">
+                    <label for="message">Upit</label>
+                    <textarea id="message" name="message" required></textarea>
+                </div>
+                
+                <button type="submit" class="submit-button">Pošalji</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-logo">
+                <!-- Replace 'energo-tim-logo.png' with your actual logo file path -->
+                <img src="energo-tim-logo.png" alt="Energo Tim">
+            </div>
+            
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Energo Tim</h4>
+                    <p>Profesionalna usluga<br>za fizičke i pravne osobe</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Kontakt</h4>
+                    <p>Phone: +385 91 9365 173<br>Email: info@energotim-instalacije.hr</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Radno vrijeme</h4>
+                    <p>Pon - Pet: 8:00 - 16:00</p>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2024 Energo Tim. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
